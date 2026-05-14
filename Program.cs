@@ -1,3 +1,4 @@
+using MudBlazor.Services;
 using Resend;
 using Website2._0.Components;
 
@@ -12,9 +13,13 @@ builder.Services.AddLocalization();
 builder.Services.AddHttpClient<ResendClient>();
 builder.Services.Configure<ResendClientOptions>(o =>
 {
-    o.ApiToken = Environment.GetEnvironmentVariable(builder.Configuration["Resend:ApiKey"])!;
+    o.ApiToken = builder.Configuration["Resend:ApiKey"];
 });
 builder.Services.AddTransient<IResend, ResendClient>();
+
+builder.Services.AddMudServices();
+
+builder.Services.AddSingleton(TimeProvider.System);
 
 string[] supportedCultures = ["en-US", "sv-SE"];
 var localizationOptions = new RequestLocalizationOptions()

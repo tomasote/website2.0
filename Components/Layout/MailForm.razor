@@ -1,24 +1,22 @@
 ﻿@inject IStringLocalizer<Resources> localizer
 @inject IResend Resend
+@rendermode InteractiveServer
 
 <form class="outerFormContainer" method="post" @onsubmit="Submit" @formname="starship-plain-form">
     <AntiforgeryToken />
     <div class="formContainer">
         <label>
-            @localizer["NameLabel"]
-            <MudTextField @bind-Value="Model!.Name" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+            <MudTextField Class="messageBox" @bind-Value="Model!.Name" Label=@(localizer["NameLabel"]) Variant="Variant.Outlined" ShrinkLabel="true"></MudTextField>
         </label>
         <label>
-            @localizer["EmailLabel"]
-            <MudTextField @bind-Value="Model!.Email" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+            <MudTextField Class="messageBox" @bind-Value="Model!.Email" Label=@(localizer["EmailLabel"]) Variant="Variant.Outlined" ShrinkLabel="true"></MudTextField>
         </label>
         <label>
-            @localizer["MessageLabel"]
-            <MudTextField @bind-Value="Model!.Message" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+            <MudTextField Class="messageBox" @bind-Value="Model!.Message" Label=@(localizer["MessageLabel"]) Sizing="InputSizing.Fixed" Lines="10" Variant="Variant.Outlined" ShrinkLabel="true"></MudTextField>
         </label>
     </div>
     <div>
-        <button type="submit">@localizer["Send"]</button>
+        <button class="sendButton" type="submit">@localizer["Send"]</button>
     </div>
 </form>
 
@@ -36,7 +34,8 @@
         if (Model == null) return;
         if (!Model.Validate()) return;
         var message = new EmailMessage();
-        message.From = "onboarding@resend.dev";
+        message.Subject = "Kontakt från hemsida";
+        message.From = "Acme <onboarding@resend.dev>";
         message.To.Add("tomas@perezjarnil.se");
         message.ReplyTo = Model.Email!;
         message.HtmlBody = $"<h1>Namn: {Model.Name!}</h1><p>{Model.Message}</p>";

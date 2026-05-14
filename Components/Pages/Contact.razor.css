@@ -9,3 +9,13 @@
 .messageContainer {
     width: 50%;
 }
+
+@media (max-width: 768px) {
+
+    .contactContainer {
+        flex-direction: column;
+    }
+    .messageContainer{
+        width: 100%;
+    }
+}

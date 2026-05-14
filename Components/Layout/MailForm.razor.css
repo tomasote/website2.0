@@ -1,7 +1,11 @@
-﻿label {
+﻿* {
+    all:unset;
+}
+label {
 }
 
 .formContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -10,6 +14,48 @@
     width: 50%;
 }
 
-.messageBox{
-    height: 400px;
+button {
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Raleway';
+    font-weight: 900;
+    font-size: larger;
+    color: var(--primary-color);
+    background: transparent;
+    border-radius: 25px;
+    border: 3px solid var(--primary-color);
+    cursor: pointer;
+    align-self: center;
+    transition: all 0.25s ease-in
+}
+
+@media (max-width: 768px) {
+
+    button {
+        background-color: var(--secondary-color);
+    }
+}
+
+@media (min-width: 768px) {
+    button:hover {
+        background-color: var(--secondary-color)
+    }
+}
+
+::deep .messageBox .mud-input-outlined-border {
+    border-color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color);
+}
+
+::deep .messageBox label {
+    color: var(--primary-color) !important;
+}
+::deep .messageBox label:active {
+    color: var(--accent-color) !important;
+}
+
+::deep .messageBox .mud-input-root {
+    color: var(--text-color) !important;
 }
