@@ -1,0 +1,15 @@
+﻿label {
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.outerFormContainer {
+    width: 50%;
+}
+
+.messageBox{
+    height: 400px;
+}

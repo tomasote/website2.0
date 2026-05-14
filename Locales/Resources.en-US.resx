@@ -138,6 +138,9 @@
   <data name="CV" xml:space="preserve">
     <value>Resumé</value>
   </data>
+  <data name="EmailLabel" xml:space="preserve">
+    <value>E-mail:</value>
+  </data>
   <data name="ForRecruiters" xml:space="preserve">
     <value>For Recruiters</value>
   </data>
@@ -153,8 +156,14 @@
   <data name="IntroTextBeginning" xml:space="preserve">
     <value>I am a software engineer specializing in developing and designing architecture for applications in various environments, using varying technologies and languages. I am currently focused on developing</value>
   </data>
+  <data name="MessageLabel" xml:space="preserve">
+    <value>Message:</value>
+  </data>
   <data name="MyName" xml:space="preserve">
     <value>Tomas Järnil Pérez</value>
+  </data>
+  <data name="NameLabel" xml:space="preserve">
+    <value>Name:</value>
   </data>
   <data name="NotFoundDesc" xml:space="preserve">
     <value>This page is either not finished, or it will never exist.</value>
@@ -176,6 +185,9 @@
   </data>
   <data name="Redacted" xml:space="preserve">
     <value>REDACTED</value>
+  </data>
+  <data name="SendButton" xml:space="preserve">
+    <value>Send</value>
   </data>
   <data name="StartGame" xml:space="preserve">
     <value>Play</value>

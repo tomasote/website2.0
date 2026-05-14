@@ -1,3 +1,4 @@
+using Resend;
 using Website2._0.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,13 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddLocalization();
+
+builder.Services.AddHttpClient<ResendClient>();
+builder.Services.Configure<ResendClientOptions>(o =>
+{
+    o.ApiToken = Environment.GetEnvironmentVariable(builder.Configuration["Resend:ApiKey"])!;
+});
+builder.Services.AddTransient<IResend, ResendClient>();
 
 string[] supportedCultures = ["en-US", "sv-SE"];
 var localizationOptions = new RequestLocalizationOptions()

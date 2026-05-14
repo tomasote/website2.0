@@ -1,0 +1,45 @@
+﻿@inject IStringLocalizer<Resources> localizer
+@inject IResend Resend
+
+<form class="outerFormContainer" method="post" @onsubmit="Submit" @formname="starship-plain-form">
+    <AntiforgeryToken />
+    <div class="formContainer">
+        <label>
+            @localizer["NameLabel"]
+            <MudTextField @bind-Value="Model!.Name" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+        </label>
+        <label>
+            @localizer["EmailLabel"]
+            <MudTextField @bind-Value="Model!.Email" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+        </label>
+        <label>
+            @localizer["MessageLabel"]
+            <MudTextField @bind-Value="Model!.Message" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
+        </label>
+    </div>
+    <div>
+        <button type="submit">@localizer["Send"]</button>
+    </div>
+</form>
+
+@code {
+    [SupplyParameterFromForm]
+    private MailModel? Model { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Model ??= new();
+    } 
+
+    async Task Submit()
+    {
+        if (Model == null) return;
+        if (!Model.Validate()) return;
+        var message = new EmailMessage();
+        message.From = "onboarding@resend.dev";
+        message.To.Add("tomas@perezjarnil.se");
+        message.ReplyTo = Model.Email!;
+        message.HtmlBody = $"<h1>Namn: {Model.Name!}</h1><p>{Model.Message}</p>";
+        await Resend.EmailSendAsync(message);
+    }
+}
