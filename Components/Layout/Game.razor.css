@@ -1,0 +1,80 @@
+﻿* {
+    all: unset;
+}
+
+.gameContainer {
+    padding: 10px;
+    width: 75%;
+    aspect-ratio: 1 / 1;
+    border: 3px solid var(--primary-color);
+    background-color: var(--background-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.innerGameContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    flex: 1;
+    display: flex;
+}
+
+.square {
+    flex: 1;
+    border: 2px solid var(--primary-color);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.hidden {
+    visibility:hidden;
+}
+
+button {
+    align-self: center;
+    justify-self: center;
+    place-self: center;
+    font-family: 'Raleway';
+    font-weight: 900;
+    font-size: xx-large;
+    color: var(--primary-color);
+    padding: 4px 16px 4px 16px;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color);
+    transition: all 0.25s ease-in;
+}
+
+.computerChecked {
+    background: red;
+    background: url(../images/me_symbol.png);
+    background-size: contain;
+}
+.playerChecked{
+    background: url(../images/player_symbol.png);
+    background-size: contain;
+}
+
+.chat{
+    min-height:200px;
+    font-size: x-large;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+@media (min-width: 768px){
+    button:hover{
+        background-color: var(--secondary-color);
+    }
+}
+
+@media (max-width: 768px){
+    .gameContainer{
+        width: 95%;
+    }
+}
+

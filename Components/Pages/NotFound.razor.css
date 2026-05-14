@@ -1,0 +1,7 @@
+﻿.nfcontainer {
+    padding-top: 100px;
+}
+h3{
+    color: var(--primary-color);
+    font-weight: 900;
+}

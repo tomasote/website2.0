@@ -1,0 +1,8 @@
+﻿svg{
+   color: var(--primary-color);
+}
+.imageContainer{
+    padding-right: 12px;
+    cursor: pointer;
+}
+

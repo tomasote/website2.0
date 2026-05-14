@@ -1,0 +1,18 @@
+﻿.ticContainer {
+    height: 100vh;
+    max-width:700px;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 768px){
+    .ticContainer{
+        margin-top: 40px;
+        width: 100%;
+    }
+}

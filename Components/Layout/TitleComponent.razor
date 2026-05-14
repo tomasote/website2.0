@@ -1,0 +1,17 @@
+﻿@inject IStringLocalizer<Resources> localizer
+<div class="imageAndTitleContainer">
+    <div class="imageContainer"></div>
+    <div class="titleContainer">
+        <p class="hiText">@localizer["Hi"]</p>
+        <h1 class="nameText">@localizer["MyName"]</h1>
+        <p class="introText">
+            @localizer["IntroTextBeginning"]
+            <span class="redactedText">@localizer["Redacted"]</span> @localizer["At"] <span class="companyText">@localizer["Company"].</span>
+        </p>
+    </div>
+</div>
+
+
+@code {
+
+}

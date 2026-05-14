@@ -1,0 +1,234 @@
+﻿@rendermode InteractiveServer
+@inject IStringLocalizer<Resources> localizer
+
+<div class="gameContainer">
+    @if (state != State.NotStarted)
+    {
+        <div class="innerGameContainer">
+            @for (int i = 0; i < gridSize; i++)
+            {
+                int row = i;
+                <div class="row" id="@row">
+                    @for (int k = 0; k < gridSize; k++)
+                    {
+                        int col = k;
+                        <div @onclick=@(async () => await HandlePlayerClick(row, col)) class=@GetClassBox(row, col) id="@($"{row}-{col}")"></div>
+                    }
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <button type="button" @onclick=@(() => StartGame())>@localizer["Start"]</button>
+    }
+</div>
+
+<div class="chat">@chat</div>
+
+@code {
+    enum State
+    {
+        NotStarted,
+        PlayerTurn,
+        ComputerTurn,
+        Finished
+    }
+    bool winsNextRound = false;
+    string chat = "";
+    bool blockedFirstRound = false;
+    // 0 unhecked, 1 player has checked, -1 is computer
+    State state = State.NotStarted;
+    int gridSize = 5;
+    int[][] grid = [
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0]
+        ];
+
+    void StartGame()
+    {
+        grid[2][1] = -1;
+        state = State.PlayerTurn;
+        StateHasChanged();
+    }
+    string GetClassBox(int i, int k)
+    {
+        bool hidden = (i == 0 || i == gridSize - 1 || k == 0 || k == gridSize - 1);
+        bool playerChecked = grid[i][k] > 0;
+        bool computerChecked = grid[i][k] < 0;
+        bool isChecked = playerChecked || computerChecked;
+        if (isChecked)
+        {
+            if (playerChecked) return "square playerChecked";
+            else return "square computerChecked";
+        }
+        else if(hidden) return "square hidden";
+        else return "square";
+    }
+
+    async Task HandlePlayerClick(int i, int k)
+    {
+        if (state != State.PlayerTurn)
+            return;
+
+        bool hidden =
+            i == 0 || i == gridSize - 1 ||
+            k == 0 || k == gridSize - 1;
+
+        bool available = grid[i][k] == 0;
+
+        if (!available || hidden)
+            return;
+        chat = "";
+        StateHasChanged();
+        state = State.ComputerTurn;
+
+        grid[i][k] = 1;
+
+        StateHasChanged();
+        if (winsNextRound)
+        {
+            await ComputerFinalPick();
+        }
+        else await ComputerSecondPick();
+    }
+    async Task ComputerSecondPick()
+    {
+        int row = 1;
+
+        if (grid[1][1] == 1)
+        {
+            row = 3;
+        }
+        if (IsBlocked())
+        {
+            blockedFirstRound = true;
+        }
+
+        chat = "Hmmm...";
+        await InvokeAsync(StateHasChanged);
+
+        await Task.Delay(2000);
+
+        chat = localizer["WhatToDo"];
+        await InvokeAsync(StateHasChanged);
+
+        await Task.Delay(2000);
+
+        chat = "Aha!";
+        winsNextRound = true;
+
+        grid[row][1] = -1;
+        state = State.PlayerTurn;
+
+        await InvokeAsync(StateHasChanged);
+    }
+
+    async Task ComputerFinalPick()
+    {
+        int row = 0;
+
+        if (grid[1][1] == 1)
+        {
+            row = 4;
+        }
+
+        if(!blockedFirstRound && IsBlocked())
+        {
+            await CheatFinish(row, true);
+        }
+        else if (blockedFirstRound)
+        {
+            await CheatFinish(row, false);
+        }
+        else
+        {
+            await RegularFinish();
+        }
+    }
+
+    bool IsBlocked()
+    {
+        return grid[1][1] == 1 || grid[3][1] == 1;
+    }
+
+    async Task RegularFinish()
+    {
+        chat = localizer["WhatQuestion"];
+        await InvokeAsync(StateHasChanged);
+
+        await Task.Delay(3000);
+
+        chat = localizer["QuestionPayMe"];
+        await InvokeAsync(StateHasChanged);
+
+        await Task.Delay(3000);
+
+        chat = localizer["OhWell"];
+        await InvokeAsync(StateHasChanged);
+
+        await Task.Delay(2000);
+
+        chat = localizer["WinMessage"];
+
+        grid[1][1] = -1;
+        grid[3][1] = -1;
+        state = State.Finished;
+
+        await InvokeAsync(StateHasChanged);
+    }
+    async Task CheatFinish(int row, bool blockedBeforeThis)
+    {
+        if (blockedBeforeThis)
+        {
+            chat = localizer["Blocked"];
+            await InvokeAsync(StateHasChanged);
+
+            await Task.Delay(2000);
+
+            chat = localizer["BeingADeveloper"];
+            await InvokeAsync(StateHasChanged);
+
+            await Task.Delay(5000);
+
+            chat = localizer["Therefore"];
+            await InvokeAsync(StateHasChanged);
+
+            await Task.Delay(2000);
+
+            chat = localizer["WinMessage"];
+
+            grid[row][1] = -1;
+            state = State.Finished;
+
+            await InvokeAsync(StateHasChanged);
+        }
+        else
+        {
+            chat = localizer["NowWhat"];
+            await InvokeAsync(StateHasChanged);
+
+            await Task.Delay(2000);
+
+            chat = localizer["BeingADeveloper"];
+            await InvokeAsync(StateHasChanged);
+
+            await Task.Delay(5000);
+
+            chat = localizer["Therefore"];
+            await InvokeAsync(StateHasChanged);
+
+            await Task.Delay(2000);
+
+            chat = localizer["WinMessage"];
+
+            grid[row][1] = -1;
+            state = State.Finished;
+
+            await InvokeAsync(StateHasChanged);
+        }
+    }
+}

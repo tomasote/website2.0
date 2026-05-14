@@ -1,0 +1,25 @@
+﻿@page "/tictactoe"
+@layout MainLayout
+@inject IStringLocalizer<Resources> localizer
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<PageTitle>@localizer["ForRecruiters"]</PageTitle>
+
+<div class="introContainer">
+    <h1 class="title">@localizer["ForRecruitersTitle"]</h1>
+
+    <p>@localizer["Pitch"]</p>
+    <button type="button" @onclick=@(() => EnterChallenge())>@localizer["AcceptChallenge"]</button>
+</div>
+
+
+@code {
+
+    void EnterChallenge()
+    {
+        NavigationManager.NavigateTo("/tictactoe/game");
+        Console.WriteLine("Clicked");
+    }
+
+}

@@ -1,0 +1,61 @@
+﻿.titleContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageAndTitleContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+.imageContainer{
+    width: 300px;
+    aspect-ratio: 1 / 1;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    background-image: url(../images/website_me.png);
+    background-size: contain;
+}
+.image{
+    width: 300px;
+    display:none;
+}
+
+p{
+    width: 50vw;
+}
+h1{
+    width: 50vw;
+}
+
+.hiText{
+    font-family: 'Source Code Pro';
+}
+.introText{
+    max-width:50vw;
+}
+.companyText{
+    color: var(--primary-color);
+    font-weight:900;
+}
+.redactedText {
+    background-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .imageAndTitleContainer {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .introText, p, h1{
+        width: 100%;
+        max-width: 100%;
+    }
+}

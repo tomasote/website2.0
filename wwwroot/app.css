@@ -1,0 +1,43 @@
+
+:root {
+    --primary-color: #B2675E;
+    --text-color: #070600;
+    --background-color: #F7F7FF;
+    --secondary-color: #61D095;
+    --accent-color: #37a5d4;
+    --shadow-color: rgba(143,143,143, 0.3);
+}
+
+
+:root {
+    * {
+    }
+    h1 {
+        font-family: 'Raleway';
+        font-weight: 900;
+        color: var(--primary-color)
+    }
+
+    h2 {
+        font-family: Raleway;
+        color: var(--text-color);
+    }
+
+    h3 {
+        font-family: Raleway;
+        color: var(--text-color);
+    }
+
+    p {
+        font-family: Raleway;
+        color: var(--text-color);
+    }
+
+    div {
+        font-family: Raleway;
+    }
+}
+
+h1:focus, h2:focus, h3:focus, p:focus {
+    outline: none;
+}

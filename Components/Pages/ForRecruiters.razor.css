@@ -1,0 +1,43 @@
+﻿.introContainer{
+    display:flex;
+    flex-direction: column;
+    justify-self:center;
+    justify-content: center;
+    gap: 20px;
+    width: 50vw;
+    height: 100vh;
+}
+.title{
+    width: inherit;
+    font-weight:900;
+}
+button{
+    width: 50%;
+    height: 100px;
+    font-family: 'Raleway';
+    font-weight: 900;
+    font-size: larger;
+    color: var(--primary-color);
+    background:transparent;
+    border-radius: 25px;
+    border: 3px solid var(--primary-color);
+    cursor: pointer;
+    align-self: center;
+    transition: all 0.25s ease-in
+}
+@media (max-width: 768px){
+    .introContainer{
+        width: 100%;
+    }
+    button{
+        width: 75%;
+        background-color: var(--secondary-color);
+    }
+    
+}
+
+@media (min-width: 768px){
+    button:hover {
+        background-color: var(--secondary-color)
+    }
+}

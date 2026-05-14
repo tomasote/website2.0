@@ -1,0 +1,28 @@
+﻿@inject IStringLocalizer<Resources> localizer
+@inject IJSRuntime JS
+
+
+<div class="navbarDesktop">
+    <a class="nav-link-style" href="">
+        <div class="nav-link-text">@localizer["Home"]</div>
+    </a>
+    <a class="nav-link-style" href="/resume">
+        <div class="nav-link-text">@localizer["CV"]</div>
+    </a>
+    <a class="nav-link-style" href="/contact">
+        <div class="nav-link-text">@localizer["Contact"]</div>
+    </a>
+    <a class="nav-link-style" href="/tictactoe">
+        <div class="nav-link-text">@localizer["ForRecruiters"]</div>
+    </a>
+</div>
+
+<div class="mobileOnly">
+    <NavbarMobile  />
+</div>
+
+
+
+@code {
+
+}

@@ -1,0 +1,46 @@
+﻿@inject IStringLocalizer<Resources> localizer
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<div class="navbarContainer">
+    <div class="navbar">
+        <HamburgerMenu OnClick="ToggleOpen" IsOpen=@isOpen/>
+    </div>
+    <div class=@($"linksContainer {GetHiddenProperty()}")>
+        <div class=@($"links")>
+            <div class="nav-link-style" @onclick="@(() => HandleOnClick("/"))">
+                <div class="nav-link-text">@localizer["Home"]</div>
+            </div>
+            <div class="nav-link-style" @onclick="@(() => HandleOnClick("/resume"))">
+                <div class="nav-link-text">@localizer["CV"]</div>
+            </div>
+            <div class="nav-link-style" @onclick="@(() => HandleOnClick("/contact"))">
+                <div class="nav-link-text">@localizer["Contact"]</div>
+            </div>
+            <div class="nav-link-style" @onclick="@(() => HandleOnClick("/tictactoe"))">
+                <div class="nav-link-text">@localizer["ForRecruiters"]</div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+@code {
+    bool isOpen = false;
+    string GetHiddenProperty()
+    {
+        return isOpen ? "" : "hidden";
+    }
+
+    void ToggleOpen()
+    {
+        isOpen = !isOpen;
+        StateHasChanged();
+    }
+    void HandleOnClick(string endpoint)
+    {
+        isOpen = false;
+        StateHasChanged();
+        NavigationManager.NavigateTo(endpoint);
+    }
+}
