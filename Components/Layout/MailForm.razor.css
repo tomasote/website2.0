@@ -2,6 +2,17 @@
     all:unset;
 }
 
+.errorMessage {
+    color: red;
+    font-weight: 600;
+}
+.successMessage{
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+.hidden {
+    display: none;
+}
 
 .formContainer {
     width: 100%;

@@ -1,6 +1,7 @@
 ﻿.ticContainer {
     height: calc(100vh - 60px);
     max-width:700px;
+    margin-top: 80px;
     width: 50vw;
     display: flex;
     flex-direction: column;
@@ -12,7 +13,7 @@
 
 @media (max-width: 768px){
     .ticContainer{
-        margin-top: 40px;
+        margin-top: 100px;
         width: 100%;
     }
 }

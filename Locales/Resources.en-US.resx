@@ -150,6 +150,9 @@
   <data name="EmailLabel" xml:space="preserve">
     <value>E-mail:</value>
   </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Something went wrong when sending the e-mail.</value>
+  </data>
   <data name="ForRecruiters" xml:space="preserve">
     <value>For Recruiters</value>
   </data>
@@ -226,6 +229,9 @@ contributing to a positive engineering culture.</value>
   </data>
   <data name="StartGame" xml:space="preserve">
     <value>Play</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Message sent!</value>
   </data>
   <data name="SysDev" xml:space="preserve">
     <value>Systems Developer</value>

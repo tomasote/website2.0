@@ -6,6 +6,8 @@
     <AntiforgeryToken />
     <div class="formContainer">
         <h1 class="sendEmailTitle">@localizer["SendMeEmail"]</h1>
+        <p class=@($"errorMessage {GetErrorHiddenClass()}")>@ErrorString</p>
+        <p class=@($"successMessage {GetSuccessHiddenClass()}")>@localizer["SuccessMessage"]</p>
         <label>
             <MudTextField Class="messageBox" @bind-Value="Model!.Name" Label=@(localizer["NameLabel"]) Variant="Variant.Outlined" ShrinkLabel="true"></MudTextField>
         </label>
@@ -24,7 +26,8 @@
 @code {
     [SupplyParameterFromForm]
     private MailModel? Model { get; set; }
-
+    private string ErrorString = "";
+    private bool messageSent = false;
     protected override void OnInitialized()
     {
         Model ??= new();
@@ -40,6 +43,27 @@
         message.To.Add("tomas@perezjarnil.se");
         message.ReplyTo = Model.Email!;
         message.HtmlBody = $"<h1>Namn: {Model.Name!}</h1><p>{Model.Message}</p>";
-        await Resend.EmailSendAsync(message);
+        var response = await Resend.EmailSendAsync(message);
+        if (response.Success)
+        {
+            messageSent = true;
+            Model.Name = "";
+            Model.Email = "";
+            Model.Message = "";
+        }
+        else
+        {
+            ErrorString = localizer["ErrorMessage"];
+        }
+        StateHasChanged();
+    }
+
+    private string GetErrorHiddenClass()
+    {
+        return string.IsNullOrEmpty(ErrorString) ? "hidden" : "";
+    }
+    private string GetSuccessHiddenClass()
+    {
+        return messageSent ? "" : "hidden";
     }
 }

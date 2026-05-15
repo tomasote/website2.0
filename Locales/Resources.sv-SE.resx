@@ -150,6 +150,9 @@
   <data name="EmailLabel" xml:space="preserve">
     <value>Email:</value>
   </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>Något gick fel när mailet skulle skickas</value>
+  </data>
   <data name="ForRecruiters" xml:space="preserve">
     <value>För rekryterare</value>
   </data>
@@ -221,6 +224,9 @@
   </data>
   <data name="StartGame" xml:space="preserve">
     <value>Spela</value>
+  </data>
+  <data name="SuccessMessage" xml:space="preserve">
+    <value>Meddelandet har skickats!</value>
   </data>
   <data name="SysDev" xml:space="preserve">
     <value>Systemutvecklare</value>
