@@ -1,7 +1,7 @@
 ﻿@page "/tictactoe/game"
 @layout MainLayout
 @inject IStringLocalizer<Resources> localizer
-
+<PageTitle>@localizer["TicTacToe"]</PageTitle>
 <div class="ticContainer">
     <h1>@localizer["TicTacToe"]</h1>
     <Game/>
