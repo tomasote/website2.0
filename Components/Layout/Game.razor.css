@@ -51,11 +51,11 @@ button {
 
 .computerChecked {
     background: red;
-    background: url(../images/me_symbol.png);
+    background: url(/images/me_symbol.png);
     background-size: contain;
 }
 .playerChecked{
-    background: url(../images/player_symbol.png);
+    background: url(/images/player_symbol.png);
     background-size: contain;
 }
 

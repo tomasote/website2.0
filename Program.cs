@@ -9,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
 builder.Services.AddLocalization();
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<ResendClient>();
@@ -45,6 +47,7 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
 app.UseAntiforgery();
+app.UseStaticFiles();
 app.MapStaticAssets();
 app.MapControllers();
 app.MapRazorComponents<App>()

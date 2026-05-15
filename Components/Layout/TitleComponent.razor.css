@@ -19,7 +19,7 @@
     aspect-ratio: 1 / 1;
     border: 3px solid var(--primary-color);
     border-radius: 50%;
-    background-image: url(../images/website_me.png);
+    background-image: url(/images/website_me.png);
     background-size: contain;
 }
 .image{
