@@ -1,0 +1,47 @@
+﻿h2{
+    color: var(--primary-color);
+    font-weight: 700;
+}
+.mainContainer{
+    padding-top: 80px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+@media (max-width: 768px){
+    .mainContainer {
+        padding-top: 20px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.titleDivider{
+    background-color: var(--primary-color);
+    height: 1px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+h3{
+    color: var(--primary-color);
+    font-weight: 600;
+}
+h4{
+    font-size: medium;
+    color: var(--primary-color);
+}
+.educationEntryTitle {
+    display: flex;
+    justify-content: space-between;
+}
+bold{
+    font-weight: bold;
+}
+
+@media (min-width: 768px){
+    .technologyComponentContainer {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,22 @@
+﻿<div class="node-wrapper">
+    <div class=@($"line top {TopExtraClass()}")></div>
+    <div class="node"></div>
+    <div class=@($"line bottom {BotExtraClass()}")></div>
+
+</div>
+@code {
+    [Parameter]
+    public bool First { get; set; }
+
+    [Parameter]
+    public bool Active { get; set; }
+
+    private string TopExtraClass()
+    {
+        return First ? "hidden" : "";
+    }
+    private string BotExtraClass()
+    {
+        return Active ? "hidden" : "";
+    }
+}

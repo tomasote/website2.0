@@ -1,19 +1,59 @@
 ﻿.contactContainer {
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px);
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-top: 80px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 .messageContainer {
-    width: 50%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+.socialsContainer{
+    display: flex;
+    gap:40px;
+}
+
+
+#linkedIn, #github{
+    color: var(--primary-color);
+    transition: all 0.25s ease-in;
+}
+
+.dividerContainer{
+    text-align: center;
+    width: 20%;
+    font-weight: 900;
+    color: var(--primary-color);
+    font-size: xx-large;
+}
+
+@media (min-width: 768px){
+    #linkedIn:hover, #github:hover {
+        cursor: pointer;
+        color: var(--secondary-color);
+    }
 }
 
 @media (max-width: 768px) {
-
+    .dividerContainer{
+        width: 100%;
+    }
     .contactContainer {
+        height: fit-content;
+        padding-top: 40px;
         flex-direction: column;
+        gap:40px;
     }
     .messageContainer{
         width: 100%;

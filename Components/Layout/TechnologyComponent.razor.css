@@ -1,0 +1,33 @@
+﻿h3 {
+    all: unset;
+    font-size: x-large;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.mainContainer {
+    display:flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.frameworkContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+.framework{
+    color: var(--primary-color);
+    font-weight: 600;
+    width: fit-content;
+    padding: 8px 12px 8px 12px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+@media (max-width: 768px){
+    h3{
+        font-size: large;
+    }
+}

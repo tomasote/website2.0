@@ -1,8 +1,9 @@
 ﻿@inject IStringLocalizer<Resources> localizer
 @inject IJSRuntime JS
+@rendermode InteractiveServer
 
 
-<div class="navbarDesktop">
+<div class=@($"navbarDesktop {GetOpaqueClass()}")>
     <a class="nav-link-style" href="">
         <div class="nav-link-text">@localizer["Home"]</div>
     </a>
@@ -24,5 +25,33 @@
 
 
 @code {
+    private bool isAtTop = true;
+    private DotNetObjectReference<NavMenu>? objRef;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            objRef = DotNetObjectReference.Create(this);
 
+            await JS.InvokeVoidAsync(
+                "scrollWatcher.observe",
+                objRef
+            );
+        }
+    }
+
+    [JSInvokable]
+    public void OnScrollStateChanged(bool atTop)
+    {
+        isAtTop = atTop;
+        StateHasChanged();
+    }
+    private string GetOpaqueClass()
+    {
+        return isAtTop ? "" : "opaque";
+    }
+    public void Dispose()
+    {
+        objRef?.Dispose();
+    }
 }

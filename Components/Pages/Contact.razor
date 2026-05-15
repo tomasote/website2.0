@@ -3,7 +3,20 @@
 @inject IStringLocalizer<Resources> localizer
 
 <div class="contactContainer">
-    <div class="messageContainer"></div>
+    <div class="messageContainer">
+        <p>@localizer["ContactIntroText"]</p>
+        <div class="socialsContainer">
+            <a class="socialMedia" id="linkedIn" href="https://www.linkedin.com/in/tomasjperez/">
+                <LinkedIn/>    
+            </a>
+            <a class="socialMedia" id="github" href="https://github.com/tomasote">
+                <GitHub/>
+            </a>
+        </div>
+    </div>
+    <div class="dividerContainer">
+        @localizer["Or"]
+    </div>
     <MailForm/>
 
 </div>

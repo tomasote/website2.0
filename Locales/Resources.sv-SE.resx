@@ -120,6 +120,9 @@
   <data name="AcceptChallenge" xml:space="preserve">
     <value>Anta utmaningen</value>
   </data>
+  <data name="AfryDesc" xml:space="preserve">
+    <value>När jag började på AFRY hjälpte jag till med interna projekt och uppgifter, såsom att analysera kod ur ett säkerhets- och säkerhetsperspektiv, samt att bryta ut delar av ett avvecklat system för att implementeras som en fristående applikation. Nu arbetar jag med en applikation för en säker plattform som används för säker kommunikation i en strikt reglerad miljö.</value>
+  </data>
   <data name="At" xml:space="preserve">
     <value>på</value>
   </data>
@@ -135,8 +138,14 @@
   <data name="Contact" xml:space="preserve">
     <value>Kontakt</value>
   </data>
+  <data name="ContactIntroText" xml:space="preserve">
+    <value>Vill du veta mer om mig? Min LinkedIn och GitHub finns här nedanför (Men min offentliga GitHub-profil ser ganska tunn ut...)</value>
+  </data>
   <data name="CV" xml:space="preserve">
     <value>CV</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>Utbildning</value>
   </data>
   <data name="EmailLabel" xml:space="preserve">
     <value>Email:</value>
@@ -177,8 +186,23 @@
   <data name="OhWell" xml:space="preserve">
     <value>Nåväl.</value>
   </data>
+  <data name="Or" xml:space="preserve">
+    <value>...Eller...</value>
+  </data>
   <data name="Pitch" xml:space="preserve">
     <value>Om du är en rekryterare så utmanar jag dig i ett parti luffarschack. Haken är att om jag vinner, måste du erbjuda mig ett jobb med en månadslön på 80 000 SEK. Om jag däremot skulle förlora, så tar jag vilket jobb som helst för minimumlön.</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="ProfileText" xml:space="preserve">
+    <value>Mångsidig och snabblärd mjukvaruutvecklare med förmåga att hantera komplexa tekniska problem och leverera högkvalitativa lösningar under pressade tidsramar. Erfaren av att bygga och underhålla system genom hela utvecklingslivscykeln, från design till driftsättning. Samarbetsinriktad, med starkt fokus på kunskapsdelning, förbättring av arbetsmetoder inom teamet och att bidra till en positiv ingenjörskultur.</value>
+  </data>
+  <data name="ProgrammeDesc" xml:space="preserve">
+    <value>Efter att jag påbörjade mina studier upptäckte jag att de delar av utbildningen som jag tyckte mest om var de där jag fick koda. Detta ledde naturligt till att jag valde att inrikta mig mot mjukvaruutveckling. Under dessa fyra år har jag lärt mig mycket om matematik, algoritmer, datastrukturer, mjukvarutestning, datorarkitektur och olika koncept inom mjukvaruutveckling. Jag har bidragit till flera olika projekt, allt från plattformsoberoende system till ett trådlöst kommunikationssystem.</value>
+  </data>
+  <data name="ProgrammeTitle" xml:space="preserve">
+    <value>Civilingenjörsprogrammet i informationsteknologi</value>
   </data>
   <data name="QuestionPayMe" xml:space="preserve">
     <value>Vill du betala mig 80 000 i månaden?</value>
@@ -186,17 +210,32 @@
   <data name="Redacted" xml:space="preserve">
     <value>HEMLIGT</value>
   </data>
+  <data name="SaabDesc" xml:space="preserve">
+    <value>På SAAB kom jag snabbt in i nya teknologier och arbetade med att lösa komplexa tekniska utmaningar. Jag bidrog till att bygga och leverera nya system och verktyg i hög takt och var ofta delaktig genom hela utvecklingsprocessen. Jag fokuserade också på att dela kunskap med mina teammedlemmar och bidrog till samarbete och kontinuerlig förbättring inom teamet.</value>
+  </data>
   <data name="SendButton" xml:space="preserve">
     <value>Skicka</value>
   </data>
+  <data name="SendMeEmail" xml:space="preserve">
+    <value>Skicka ett mail!</value>
+  </data>
   <data name="StartGame" xml:space="preserve">
     <value>Spela</value>
+  </data>
+  <data name="SysDev" xml:space="preserve">
+    <value>Systemutvecklare</value>
+  </data>
+  <data name="Technologies" xml:space="preserve">
+    <value>Teknologi</value>
   </data>
   <data name="Therefore" xml:space="preserve">
     <value>Med det sagt...</value>
   </data>
   <data name="TicTacToe" xml:space="preserve">
     <value>Luffarschack</value>
+  </data>
+  <data name="UU" xml:space="preserve">
+    <value>Uppsala Universitet</value>
   </data>
   <data name="WhatQuestion" xml:space="preserve">
     <value>Men alltså, du försöker inte ens.</value>
@@ -206,5 +245,8 @@
   </data>
   <data name="WinMessage" xml:space="preserve">
     <value>Jag vann! Jag förväntar mig ett samtal från dig.</value>
+  </data>
+  <data name="WorkExperience" xml:space="preserve">
+    <value>Arbetslivserfarenhet</value>
   </data>
 </root>

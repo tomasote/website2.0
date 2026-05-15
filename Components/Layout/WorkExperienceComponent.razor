@@ -1,0 +1,51 @@
+﻿@inject IStringLocalizer<Resources> localizer
+
+
+<div class="mainContainer">
+    <Symbol First=@First Active=@Active/>
+    <div class="infoContainer">
+        <h3>@($"{Title} @ {CompanyName}")</h3>
+        <h4>@StartDate?.ToString("MMMM yyyy", CultureInfo.CurrentCulture) - @EndDate</h4>
+        <p>@Desc</p>
+    </div>
+</div>
+@code {
+
+    // When passing arguments pass them using US culture, full month and year.
+    // E.g. May 2026, December 2021
+    [Parameter]
+    public bool First { get; set; } = false;
+
+    private bool Active { get; set; } = false;
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public DateTime? StartDate { get; set; }
+
+    [Parameter]
+    public string? EndDateRaw { get; set; }
+    private string? EndDate { get; set; }
+
+    [Parameter]
+    public string? CompanyName { get; set; }
+
+    [Parameter]
+    public string? Desc { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Active = EndDateRaw == "present";
+        if(EndDateRaw != null)
+        {
+            
+            EndDate = EndDateRaw == "present" ? "present" : DateTime.ParseExact(
+                EndDateRaw,
+                "MMMM yyyy",
+                new CultureInfo("en-US")
+            ).ToString("MMMM yyyy", CultureInfo.CurrentCulture);
+        }
+
+    }
+}

@@ -1,7 +1,9 @@
-﻿
+﻿*{
+    all: unset;
+}
 
 .navbarContainer {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
 }
@@ -28,8 +30,11 @@
 }
 
 .linksContainer {
-    height: calc(100vh - 60px);
+    isolation: isolate;
+    position: fixed;
+    inset: 60px 0 0 0;
     background-color: #232323F0;
+    z-index: 2147483647;
 }
 
 .links {

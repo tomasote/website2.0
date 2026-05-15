@@ -1,0 +1,68 @@
+﻿@page "/resume"
+@inject IStringLocalizer<Resources> localizer
+
+<div class="mainContainer">
+    <div class="profileContainer">
+        <h2>@localizer["Profile"]</h2>
+        <div class="titleDivider"></div>
+        <p>@localizer["ProfileText"]</p>
+    </div>
+    <div class="educationContainer">
+        <h2>@localizer["Education"]</h2>
+        <div class="titleDivider"></div>
+        <h3>@localizer["UU"]</h3>
+        <h4>@startEducation.ToString("MMMM yyyy", CultureInfo.CurrentCulture) - @endEducation.ToString("MMMM yyyy", CultureInfo.CurrentCulture)</h4>
+        <p><bold>@localizer["ProgrammeTitle"]:</bold> @localizer["ProgrammeDesc"]</p>
+
+    </div>
+    <div class="workContainer">
+        <h2>@localizer["WorkExperience"]</h2>
+        <div class="titleDivider"></div>
+        <WorkExperienceComponent
+            First=@true
+            Title=@(localizer["SysDev"])
+            StartDate=@(DateTime.ParseExact(
+                "August 2024",
+                "MMMM yyyy",
+                new CultureInfo("en-US")
+            ))
+            EndDateRaw="September 2025"
+            CompanyName="SAAB"
+            Desc=@(localizer["SaabDesc"])
+            />
+        <WorkExperienceComponent Title=@(localizer["SysDev"])
+            StartDate=@(DateTime.ParseExact(
+                "October 2025",
+                "MMMM yyyy",
+                new CultureInfo("en-US")
+            ))
+            EndDateRaw="present"
+            CompanyName="AFRY"
+            Desc=@(localizer["AfryDesc"]) />
+    </div>
+    <div class="techContainer">
+        <h2>@localizer["Technologies"]</h2>
+        <div class="titleDivider"></div>
+        <div class="technologyComponentContainer">
+            <TechnologyComponent Title="Android" Frameworks=@(["Kotlin", "Room"]) />
+            <TechnologyComponent Title="C#" Frameworks=@(["ASP.NET", "Blazor"]) />
+            <TechnologyComponent Title="JavaScript" Frameworks=@(["React", "React Native"]) />
+            <TechnologyComponent Title="C/C++" Frameworks=@(["OpenMPI", "OpenMP", "SIMD"]) />
+            <TechnologyComponent Title="Python" Frameworks=@(["Django", "Pandas", "Numpy"]) />
+        </div>
+    </div>
+    
+</div>
+
+@code {
+    private DateTime startEducation = DateTime.ParseExact(
+            "August 2019",
+            "MMMM yyyy",
+            new CultureInfo("en-US")
+        );
+    private DateTime endEducation = DateTime.ParseExact(
+            "June 2019",
+            "MMMM yyyy",
+            new CultureInfo("en-US")
+        );
+}

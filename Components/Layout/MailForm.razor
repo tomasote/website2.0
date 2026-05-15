@@ -5,6 +5,7 @@
 <form class="outerFormContainer" method="post" @onsubmit="Submit" @formname="starship-plain-form">
     <AntiforgeryToken />
     <div class="formContainer">
+        <h1 class="sendEmailTitle">@localizer["SendMeEmail"]</h1>
         <label>
             <MudTextField Class="messageBox" @bind-Value="Model!.Name" Label=@(localizer["NameLabel"]) Variant="Variant.Outlined" ShrinkLabel="true"></MudTextField>
         </label>

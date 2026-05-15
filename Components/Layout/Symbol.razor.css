@@ -1,0 +1,41 @@
+﻿.node-wrapper {
+    display: flex;
+    margin-right: 10px;
+    width: 20%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.node {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--text-color);
+    background-color: var(--primary-color);
+}
+
+/* shared line style */
+.line {
+    width: 2px;
+    height: 120px;
+    background: var(--text-color);
+}
+
+@media (max-width: 768px){
+    .line{
+        height: 180px;
+    }
+}
+
+/* optional spacing tuning */
+.line.top {
+    margin-bottom: 5px;
+}
+
+.line.bottom {
+    margin-top: 5px;
+}
+.hidden{
+    visibility:hidden;
+}

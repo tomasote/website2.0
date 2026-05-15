@@ -1,8 +1,7 @@
 ﻿* {
     all:unset;
 }
-label {
-}
+
 
 .formContainer {
     width: 100%;
@@ -11,7 +10,7 @@ label {
     gap: 20px;
 }
 .outerFormContainer {
-    width: 50%;
+    width: 40%;
 }
 
 button {
@@ -30,11 +29,20 @@ button {
     align-self: center;
     transition: all 0.25s ease-in
 }
+.sendEmailTitle{
+    font-size: x-large;
+}
 
 @media (max-width: 768px) {
 
     button {
         background-color: var(--secondary-color);
+    }
+    .outerFormContainer{
+        width: 100%;
+    }
+    .sendEmailTitle{
+        text-align: center;
     }
 }
 
@@ -58,4 +66,11 @@ button {
 
 ::deep .messageBox .mud-input-root {
     color: var(--text-color) !important;
+}
+::deep .mud-input-outlined {
+    z-index: 0 !important;
+}
+::deep .mud-input-control {
+    position: static !important;
+    z-index: auto !important;
 }

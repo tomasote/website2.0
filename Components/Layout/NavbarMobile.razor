@@ -1,11 +1,15 @@
 ﻿@inject IStringLocalizer<Resources> localizer
 @inject NavigationManager NavigationManager
 @rendermode InteractiveServer
+@inject IJSRuntime JS
 
 <div class="navbarContainer">
     <div class="navbar">
         <HamburgerMenu OnClick="ToggleOpen" IsOpen=@isOpen/>
     </div>
+</div>
+@if (isOpen)
+{
     <div class=@($"linksContainer {GetHiddenProperty()}")>
         <div class=@($"links")>
             <div class="nav-link-style" @onclick="@(() => HandleOnClick("/"))">
@@ -20,10 +24,10 @@
             <div class="nav-link-style" @onclick="@(() => HandleOnClick("/tictactoe"))">
                 <div class="nav-link-text">@localizer["ForRecruiters"]</div>
             </div>
+            <CultureSelector/>
         </div>
     </div>
-    
-</div>
+}
 
 @code {
     bool isOpen = false;

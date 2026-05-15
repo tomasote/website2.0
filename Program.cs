@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Localization;
 using MudBlazor.Services;
 using Resend;
+using System.Globalization;
 using Website2._0.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,7 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddLocalization();
-
+builder.Services.AddControllers();
 builder.Services.AddHttpClient<ResendClient>();
 builder.Services.Configure<ResendClientOptions>(o =>
 {
@@ -23,9 +25,14 @@ builder.Services.AddSingleton(TimeProvider.System);
 
 string[] supportedCultures = ["en-US", "sv-SE"];
 var localizationOptions = new RequestLocalizationOptions()
-    .SetDefaultCulture(supportedCultures[0])
+    .SetDefaultCulture(supportedCultures[1])
     .AddSupportedCultures(supportedCultures)
     .AddSupportedUICultures(supportedCultures);
+
+localizationOptions.RequestCultureProviders = new[]
+{
+    new AcceptLanguageHeaderRequestCultureProvider()
+};
 
 var app = builder.Build();
 
@@ -38,8 +45,8 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
 app.UseAntiforgery();
-
 app.MapStaticAssets();
+app.MapControllers();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

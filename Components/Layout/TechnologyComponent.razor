@@ -1,0 +1,15 @@
+﻿<div class="mainContainer">
+    <h3>@Title:</h3>
+    <div class="frameworkContainer">
+        @foreach(var framework in Frameworks){
+            <div class="framework">@framework</div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = "";
+    [Parameter]
+    public List<string> Frameworks { get; set; } = [];
+}

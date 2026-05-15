@@ -11,6 +11,7 @@ a{
     border-bottom: 2px var(--primary-color) solid;
     flex-direction: row;
     justify-content: center;
+    transition: all 0.25s ease-in;
     gap: 20px;
     align-items: center;
 }
@@ -33,11 +34,16 @@ a{
     justify-self: center;
     align-self: center;
     opacity: 1;
+    transition: all 0.25s ease;
     height: 100%;
 }
 
 .mobileOnly{
     display: none;
+}
+
+.navbarDesktop.opaque{
+    background-color: var(--background-color);
 }
 
 @media (max-width: 768px){
